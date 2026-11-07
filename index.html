@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SanRemo — салон сантехніки та плитки в Одесі</title>
+<meta name="description" content="Салон SanRemo в Одесі: сантехніка, керамічна плитка, ламінат, двері, радіатори від кращих світових брендів. Вул. Середня, 59. З 2005 року.">
+<meta name="theme-color" content="#0b1312">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-portosole.webp">
+<style>
+:root{
+  --black:#0b1312;      /* основний фон */
+  --black-2:#111b1a;    /* друга секція */
+  --card:#16221f;       /* картки */
+  --line:rgba(255,255,255,.09);
+  --teal:#00aa9d;       /* фірмова бірюза зі старого сайту */
+  --teal-light:#3fd2c4;
+  --teal-deep:#007f73;
+  --teal-dark:#013a35;
+  --sand:#c7b299;       /* стриманий бежевий акцент зі старого сайту */
+  --text:#e9efee;
+  --muted:#93a5a2;
+  --radius:16px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--black)}
+body{margin:0;font-family:var(--sans);color:var(--text);background:var(--black);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.container{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0;color:#fff}
+h2{font-size:clamp(2.1rem,4vw,3.2rem)}
+.eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-light);font-weight:700;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;transition:transform .2s,background .2s,box-shadow .2s,color .2s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 12px 30px -12px rgba(0,170,157,.8)}
+.btn-primary:hover{background:var(--teal-light);color:var(--black)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.04);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:#fff;color:var(--black)}
+.diamond{display:inline-block;width:12px;height:12px;background:var(--teal);transform:rotate(45deg);border-radius:2px;flex:none}
+
+/* Topbar + header */
+.topbar{background:#060c0b;color:var(--muted);font-size:.85rem;border-bottom:1px solid var(--line)}
+.topbar .container{display:flex;justify-content:space-between;gap:16px;padding:8px 0;flex-wrap:wrap}
+header.site{position:sticky;top:0;z-index:50;background:rgba(11,19,18,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.site .container{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-word{font-family:var(--serif);font-size:2rem;font-weight:600;color:#fff;letter-spacing:.02em}
+.logo-word span{color:var(--teal)}
+.logo small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:-4px}
+nav.main ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+nav.main a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;color:#cfd9d7}
+nav.main a:hover{color:#fff}
+nav.main a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--teal);transition:width .25s}
+nav.main a:hover::after{width:100%}
+.header-call{display:flex;align-items:center;gap:16px}
+.header-call .phone{font-weight:700;text-decoration:none;color:#fff}
+.burger{display:none;background:none;border:0;font-size:1.6rem;color:#fff;cursor:pointer}
+
+/* Hero з фото */
+.hero{position:relative;min-height:calc(100vh - 110px);min-height:calc(100svh - 110px);display:flex;align-items:flex-end;padding:120px 0 70px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:url(assets/hero-portosole.webp) center 55%/cover no-repeat;transform:scale(1.06);animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(6,12,11,.92) 0%,rgba(6,12,11,.7) 38%,rgba(6,12,11,.15) 70%,rgba(6,12,11,.05) 100%),
+  linear-gradient(0deg,var(--black) 0%,rgba(11,19,18,0) 35%)}
+.hero-inner{max-width:640px}
+.hero h1{font-size:clamp(2.9rem,6.4vw,5.6rem);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--teal-light)}
+.hero p.lead{font-size:1.15rem;color:#c8d4d2;max-width:520px;margin:24px 0 34px}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-facts{display:flex;gap:0;margin-top:56px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:26px}
+.hero-facts div{padding-right:36px;margin-right:36px;border-right:1px solid rgba(255,255,255,.18)}
+.hero-facts div:last-child{border:0;margin:0;padding:0}
+.hero-facts b{display:block;font-family:var(--serif);font-size:2.5rem;color:#fff;line-height:1}
+.hero-facts span{font-size:.85rem;color:var(--muted)}
+.hero-badge{position:absolute;right:max(20px,calc((100% - 1200px)/2));bottom:70px;background:rgba(11,19,18,.72);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 20px;display:flex;gap:14px;align-items:center;font-size:.9rem;max-width:280px;text-decoration:none}
+.hero-badge:hover{border-color:var(--teal)}
+.hero-badge b{color:#fff}
+.hero-badge span{color:var(--muted)}
+.photo-credit{position:absolute;right:14px;top:12px;font-size:.68rem;color:rgba(255,255,255,.55);text-decoration:none}
+.photo-credit:hover{color:#fff}
+
+/* Секції */
+section{padding:110px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+.section-head p{max-width:440px;color:var(--muted);margin:0}
+
+/* Категорії */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cat{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px 26px;text-decoration:none;transition:transform .25s,border-color .25s,background .25s;overflow:hidden;min-height:220px;display:flex;flex-direction:column}
+.cat:hover{transform:translateY(-6px);border-color:rgba(0,170,157,.6);background:#1a2926}
+.cat .ico{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(0,170,157,.4);margin-bottom:22px;transition:background .25s}
+.cat:hover .ico{background:var(--teal)}
+.cat .ico svg{width:28px;height:28px;stroke:var(--teal-light);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
+.cat:hover .ico svg{stroke:#fff}
+.cat h3{font-size:1.65rem;margin-bottom:6px}
+.cat p{margin:0;color:var(--muted);font-size:.92rem}
+.cat .arrow{margin-top:auto;padding-top:18px;color:var(--teal-light);font-weight:600;font-size:.9rem}
+.cat.big{grid-column:span 2;min-height:280px;background:linear-gradient(135deg,var(--teal-deep),var(--teal-dark));border-color:rgba(63,210,196,.25)}
+.cat.big::after{content:"";position:absolute;right:-70px;bottom:-70px;width:240px;height:240px;border:1px solid rgba(255,255,255,.18);transform:rotate(45deg);border-radius:12px}
+.cat.big h3{font-size:2.2rem}
+.cat.big p{color:#bfe3df}
+.cat.big .ico{border-color:rgba(255,255,255,.35)}
+.cat.big .ico svg{stroke:#fff}
+.cat.big .arrow{color:#fff}
+
+/* Про салон */
+.about{background:var(--black-2);border-block:1px solid var(--line)}
+.about .container{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about-art{position:relative;aspect-ratio:1;border-radius:var(--radius);overflow:hidden}
+.about-art svg{width:100%;height:100%;display:block}
+.about p{color:var(--muted)}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.perk{display:flex;gap:14px;align-items:flex-start}
+.perk .diamond{margin-top:8px}
+.perk b{display:block;color:#fff}
+.perk span{font-size:.9rem;color:var(--muted)}
+.quote{margin-top:32px;padding:20px 26px;border-left:2px solid var(--teal);background:rgba(0,170,157,.06);border-radius:0 12px 12px 0;font-family:var(--serif);font-size:1.45rem;font-style:italic;color:#fff}
+
+/* Бренди */
+.brands{padding:80px 0;overflow:hidden}
+.brands h2{text-align:center;margin-bottom:40px}
+.marquee{display:flex;gap:64px;width:max-content;animation:scroll 45s linear infinite}
+.marquee span{font-family:var(--serif);font-size:2rem;color:#d4dedc;opacity:.55;white-space:nowrap;font-weight:600;transition:opacity .2s,color .2s}
+.marquee span:hover{opacity:1;color:var(--teal-light)}
+.brands:hover .marquee{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Пропозиції */
+.offers{padding-top:30px}
+.offers .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.offer{border-radius:var(--radius);padding:44px;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--line)}
+.offer h3{font-size:2.3rem;margin-bottom:12px}
+.offer p{margin:0 0 26px;max-width:420px}
+.offer.sale{background:radial-gradient(500px 300px at 100% 0%,rgba(199,178,153,.18),transparent 70%),var(--card)}
+.offer.sale p{color:var(--muted)}
+.offer.sale .tag{color:var(--sand)}
+.offer.design{background:linear-gradient(150deg,var(--teal),var(--teal-dark));border-color:transparent}
+.offer.design p{color:#d4f0ec}
+.offer .tag{position:absolute;top:32px;left:44px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#fff;opacity:.85}
+.offer .shape{position:absolute;right:-50px;top:-50px;width:220px;height:220px;border:1px solid currentColor;opacity:.2;transform:rotate(45deg);border-radius:14px}
+.offer .shape::after{content:"";position:absolute;inset:28px;border:1px solid currentColor;border-radius:10px}
+.offer.sale .btn{background:transparent;border:1.5px solid var(--sand);color:var(--sand)}
+.offer.sale .btn:hover{background:var(--sand);color:var(--black)}
+.offer.design .btn{background:#fff;color:var(--teal-dark)}
+
+/* Контакти */
+.contacts .container{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:stretch}
+.c-list{list-style:none;padding:0;margin:34px 0 0;display:grid;gap:24px}
+.c-list li{display:flex;gap:16px}
+.c-list .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.c-list a{text-decoration:none;color:#fff;font-weight:600}
+.c-list a:hover{color:var(--teal-light)}
+.c-ico{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(0,170,157,.4);display:grid;place-items:center}
+.c-ico svg{width:20px;height:20px;stroke:var(--teal-light);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.socials{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.socials a{padding:9px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.85rem;color:#cfd9d7;transition:all .2s}
+.socials a:hover{border-color:var(--teal);color:#fff;background:rgba(0,170,157,.12)}
+.map{border-radius:var(--radius);overflow:hidden;min-height:440px;border:1px solid var(--line)}
+.map iframe{width:100%;height:100%;border:0;min-height:440px;filter:grayscale(.6) invert(.92) hue-rotate(180deg) contrast(.9)}
+
+footer{background:#060c0b;color:var(--muted);padding:44px 0 100px;font-size:.88rem;border-top:1px solid var(--line)}
+footer .container{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+
+.callbar{display:none}
+
+.fade-up{animation:fadeUp 1s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.marquee,.hero-bg{animation:none}}
+
+@media (max-width:980px){
+  nav.main,.header-call .btn{display:none}
+  .burger{display:block}
+  nav.main.open{display:block;position:absolute;top:76px;left:0;right:0;background:var(--black);border-bottom:1px solid var(--line);padding:20px}
+  nav.main.open ul{flex-direction:column;gap:16px}
+  .about .container,.contacts .container{grid-template-columns:1fr}
+  .cats{grid-template-columns:1fr 1fr}
+  .offers .grid{grid-template-columns:1fr}
+  .hero-badge{position:relative;right:auto;bottom:auto;margin-top:30px}
+  .hero .container{display:flex;flex-direction:column}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  section{padding:76px 0}
+  .topbar .hours{display:none}
+  .header-call .phone{display:none}
+  .hero{padding:90px 0 50px;min-height:auto}
+  .hero::before{background:linear-gradient(180deg,rgba(6,12,11,.55) 0%,rgba(6,12,11,.85) 55%,var(--black) 100%)}
+  .hero-facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px}
+  .hero-facts div{padding:0 10px 0 0;margin:0 10px 0 0}
+  .hero-facts b{font-size:1.8rem}
+  .hero-facts span{font-size:.75rem;display:block;line-height:1.3;margin-top:4px}
+  .cats{grid-template-columns:1fr}
+  .cat.big{grid-column:auto}
+  .perks{grid-template-columns:1fr}
+  .offer{padding:32px}
+  .offer .tag{left:32px}
+  .callbar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(11,19,18,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .callbar a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 12px;text-decoration:none;font-size:.75rem;font-weight:600;color:#cfd9d7}
+  .callbar a:first-child{background:var(--teal);color:#fff}
+  .callbar svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>м. Одеса, вул. Середня, 59</span>
+    <span class="hours">Пн–Пт 10:00–19:00 · Сб–Нд 10:00–17:00</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container">
+    <a href="#" class="logo" aria-label="SanRemo — на головну">
+      <span class="diamond" style="width:16px;height:16px"></span>
+      <div>
+        <div class="logo-word">San<span>Remo</span></div>
+        <small>салон сантехніки та плитки</small>
+      </div>
+    </a>
+    <nav class="main" id="nav">
+      <ul>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#about">Про салон</a></li>
+        <li><a href="#brands">Бренди</a></li>
+        <li><a href="#offers">Акції</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+      </ul>
+    </nav>
+    <div class="header-call">
+      <a class="phone" href="tel:+380638441794">(063) 844-17-94</a>
+      <a class="btn btn-primary" href="#contacts">Зв'язатися</a>
+      <button class="burger" aria-label="Меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Санремо, Лігурійська Рив'єра"></div>
+  <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Sanremo_-_Portosole.jpg" target="_blank" rel="noopener">Фото: Kent Wang, CC BY-SA 2.0</a>
+  <div class="container">
+    <div class="hero-inner fade-up">
+      <p class="eyebrow">Салон у Одесі · з 2005 року</p>
+      <h1>Територія <em>ДУШевних</em> рішень</h1>
+      <p class="lead">Сантехніка та керамічна плитка від кращих італійських, іспанських та європейських брендів. Допоможемо створити ванну кімнату, якою хочеться милуватися.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#catalog">Переглянути каталог →</a>
+        <a class="btn btn-ghost" href="tel:+380638441794">Подзвонити</a>
+      </div>
+      <div class="hero-facts">
+        <div><b>20+</b><span>років досвіду</span></div>
+        <div><b>160+</b><span>брендів</span></div>
+        <div><b>Rea</b><span>офіційний представник</span></div>
+      </div>
+    </div>
+    <a class="hero-badge fade-up" href="#offers" style="animation-delay:.4s">
+      <span class="diamond"></span>
+      <div><b>Розпродаж вітринних зразків</b><br><span>вигідні ціни на експозицію →</span></div>
+    </a>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Каталог</p>
+        <h2>Усе для ремонту<br>в одному салоні</h2>
+      </div>
+      <p>Ванна кімната, кухня, вітальня, тераса — підберемо рішення під ваш інтер'єр і бюджет.</p>
+    </div>
+    <div class="cats">
+      <a href="#" class="cat big reveal">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M4 16h24v3a7 7 0 0 1-7 7H11a7 7 0 0 1-7-7z"/><path d="M8 16V7a3 3 0 0 1 6 0"/><path d="M10 26l-1 3M22 26l1 3"/></svg></div>
+        <h3>Сантехніка</h3>
+        <p>Ванни, душові системи, змішувачі, унітази, раковини — Grohe, Hansgrohe, Villeroy&nbsp;&amp;&nbsp;Boch, Duravit, Rea</p>
+        <span class="arrow">Дивитися →</span>
+      </a>
+      <a href="#" class="cat big reveal">
+        <div class="ico"><svg viewBox="0 0 32 32"><rect x="4" y="4" width="11" height="11" rx="1"/><rect x="17" y="4" width="11" height="11" rx="1"/><rect x="4" y="17" width="11" height="11" rx="1"/><rect x="17" y="17" width="11" height="11" rx="1"/></svg></div>
+        <h3>Керамічна плитка</h3>
+        <p>Понад 100 фабрик Італії, Іспанії та Польщі — Atlas Concorde, Porcelanosa, Marca Corona, Peronda</p>
+        <span class="arrow">Дивитися →</span>
+      </a>
+      <a href="#" class="cat reveal">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M3 22q3.25-3 6.5 0t6.5 0 6.5 0 6.5 0"/><path d="M3 27q3.25-3 6.5 0t6.5 0 6.5 0 6.5 0"/><path d="M10 18V6a3 3 0 0 1 6 0M10 11h6"/></svg></div>
+        <h3>Басейни та сауни</h3><p>Jacuzzi, Appollo, Treesse</p><span class="arrow">Дивитися →</span>
+      </a>
+      <a href="#" class="cat reveal">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M3 10l13-6 13 6-13 6z"/><path d="M3 16l13 6 13-6"/><path d="M3 22l13 6 13-6"/></svg></div>
+        <h3>Ламінат</h3><p>Quick-Step, Kaindl, Ter Hürne</p><span class="arrow">Дивитися →</span>
+      </a>
+      <a href="#" class="cat reveal">
+        <div class="ico"><svg viewBox="0 0 32 32"><rect x="7" y="3" width="18" height="26" rx="1"/><circle cx="21" cy="16" r="1.2"/></svg></div>
+        <h3>Двері</h3><p>Міжкімнатні двері Liberta, Rodos</p><span class="arrow">Дивитися →</span>
+      </a>
+      <a href="#" class="cat reveal">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M7 4v24M25 4v24M7 9h18M7 15h18M7 21h18"/></svg></div>
+        <h3>Радіатори</h3><p>Рушникосушки та радіатори</p><span class="arrow">Дивитися →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-art reveal">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <defs>
+          <pattern id="tile" width="100" height="100" patternUnits="userSpaceOnUse">
+            <rect width="100" height="100" fill="#0e1918"/>
+            <path d="M50 8 L92 50 L50 92 L8 50Z" fill="none" stroke="#00aa9d" stroke-width="2"/>
+            <path d="M50 26 L74 50 L50 74 L26 50Z" fill="#007f73"/>
+            <path d="M50 40 L60 50 L50 60 L40 50Z" fill="#0e1918"/>
+            <path d="M0 0 Q25 25 0 50 M100 0 Q75 25 100 50 M0 100 Q25 75 0 50 M100 100 Q75 75 100 50" fill="none" stroke="#c7b299" stroke-width="1.5" opacity=".6"/>
+            <circle cx="50" cy="0" r="4" fill="#3fd2c4"/><circle cx="50" cy="100" r="4" fill="#3fd2c4"/>
+          </pattern>
+          <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset=".4" stop-color="#0b1312" stop-opacity="0"/><stop offset="1" stop-color="#0b1312" stop-opacity=".9"/></linearGradient>
+        </defs>
+        <rect width="400" height="400" fill="url(#tile)"/>
+        <rect width="400" height="400" fill="url(#fade)"/>
+        <text x="200" y="320" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="46" fill="#fff" font-style="italic">з 2005 року</text>
+        <text x="200" y="352" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" letter-spacing="3.5" fill="#3fd2c4">ОДЕСА · ВУЛ. СЕРЕДНЯ, 59</text>
+      </svg>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Про салон</p>
+      <h2>Від маленького магазину — до іміджевого салону</h2>
+      <p style="margin-top:22px">З 2005 року наші фахівці допомагають створювати нестандартні, унікальні інтер'єри. Сьогодні SanRemo — одна з провідних компаній Одеського регіону з великим досвідом і численними постійними клієнтами.</p>
+      <p>Працюємо для приватних клієнтів, підприємців, дизайнерів та архітекторів. Враховуємо ваші побажання і втілюємо їх у готові, ДУШевні рішення.</p>
+      <div class="perks">
+        <div class="perk"><span class="diamond"></span><div><b>Офіційний представник Rea</b><span>в Одесі</span></div></div>
+        <div class="perk"><span class="diamond"></span><div><b>Система знижок</b><span>для постійних клієнтів</span></div></div>
+        <div class="perk"><span class="diamond"></span><div><b>Співпраця з дизайнерами</b><span>Одеса та область</span></div></div>
+        <div class="perk"><span class="diamond"></span><div><b>Широкий асортимент</b><span>економія часу на виборі</span></div></div>
+      </div>
+      <div class="quote">«Ми любимо свою роботу і робимо її професійно!»</div>
+    </div>
+  </div>
+</section>
+
+<div class="brands" id="brands">
+  <h2 class="reveal">Бренди, яким ми довіряємо</h2>
+  <div class="marquee" aria-label="Бренди">
+    <span>Grohe</span><span>Villeroy &amp; Boch</span><span>Hansgrohe</span><span>Porcelanosa</span><span>Duravit</span><span>Atlas Concorde</span><span>Geberit</span><span>Marca Corona</span><span>Rea</span><span>Laufen</span><span>Ravak</span><span>Peronda</span><span>Kaldewei</span><span>Ragno</span><span>Gessi</span><span>Quick-Step</span>
+    <span aria-hidden="true">Grohe</span><span aria-hidden="true">Villeroy &amp; Boch</span><span aria-hidden="true">Hansgrohe</span><span aria-hidden="true">Porcelanosa</span><span aria-hidden="true">Duravit</span><span aria-hidden="true">Atlas Concorde</span><span aria-hidden="true">Geberit</span><span aria-hidden="true">Marca Corona</span><span aria-hidden="true">Rea</span><span aria-hidden="true">Laufen</span><span aria-hidden="true">Ravak</span><span aria-hidden="true">Peronda</span><span aria-hidden="true">Kaldewei</span><span aria-hidden="true">Ragno</span><span aria-hidden="true">Gessi</span><span aria-hidden="true">Quick-Step</span>
+  </div>
+</div>
+
+<section class="offers" id="offers">
+  <div class="container">
+    <div class="grid">
+      <div class="offer sale reveal">
+        <span class="tag">Вигідно</span><span class="shape" style="color:var(--sand)"></span>
+        <h3>Розпродаж вітринних зразків</h3>
+        <p>Преміальна сантехніка та плитка з експозиції салону за зниженими цінами. Кількість обмежена.</p>
+        <a class="btn" href="#contacts">Дізнатися наявність</a>
+      </div>
+      <div class="offer design reveal">
+        <span class="tag">Для професіоналів</span><span class="shape" style="color:#fff"></span>
+        <h3>Дизайнерам та архітекторам</h3>
+        <p>Спеціальні умови співпраці, підбір колекцій під проєкт та супровід замовлення.</p>
+        <a class="btn" href="#contacts">Стати партнером</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Контакти</p>
+      <h2>Завітайте до салону</h2>
+      <ul class="c-list">
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <div><span class="lbl">Адреса</span><a href="https://maps.google.com/?q=46.4810,30.6858" target="_blank" rel="noopener">м. Одеса, вул. Середня, 59</a></div></li>
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <div><span class="lbl">Телефони та месенджери</span>
+            <a href="tel:+380638441794">(063) 844-17-94</a><br>
+            <a href="tel:+380503177785">(050) 317-77-85</a><br>
+            <a href="tel:+380735378788">(073) 537-87-88</a></div></li>
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><span class="lbl">Графік роботи</span>Пн–Пт: 10:00–19:00<br>Сб–Нд: 10:00–17:00</div></li>
+        <li><span class="c-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <div><span class="lbl">E-mail</span><a href="mailto:info@sanremo.od.ua">info@sanremo.od.ua</a></div></li>
+      </ul>
+      <div class="socials">
+        <a href="https://t.me/SanRemoSalon" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://www.instagram.com/sanremosalonodessa/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/SanRemoSalon/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.tiktok.com/@sanremoodessa" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/channel/UC9g-m-mnoXyHTaE0ulPIWzg" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Салон SanRemo на карті" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2747.3670692710625!2d30.68579541559191!3d46.4810435791261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c631fe4cbe7067%3A0xa189ee308e5d929a!2z0KHQsNC70L7QvSAi0KHQsNC9INCg0LXQvNC-Ig!5e0!3m2!1suk!2sua!4v1509535444289"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo"><span class="diamond" style="width:14px;height:14px"></span><span class="logo-word">San<span>Remo</span></span></div>
+    <span>Територія душевних рішень та вигідних пропозицій</span>
+    <span>© 2005–<span id="y">2026</span> Салон SanRemo</span>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Швидкий зв'язок">
+  <a href="tel:+380638441794"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Подзвонити</a>
+  <a href="https://t.me/SanRemoSalon"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l12-9"/></svg>Telegram</a>
+  <a href="https://maps.google.com/?q=46.4810,30.6858"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Маршрут</a>
+</nav>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+</script>
+</body>
+</html>
