@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..600&family=Forum&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/night.webp">
-<link rel="stylesheet" href="v2.css?v=6">
+<link rel="stylesheet" href="v2.css?v=7">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -236,7 +236,8 @@ nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .15, rootMargin: '0px 0px -6% 0px'});
 document.querySelectorAll('.curtain,.lift').forEach(el => io.observe(el));
 // Safety net: never leave content hidden if the observer does not fire
-setTimeout(() => document.querySelectorAll('.curtain:not(.in),.lift:not(.in)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight) el.classList.add('in'); }), 2500);
+const sweep = () => document.querySelectorAll('.curtain:not(.in),.lift:not(.in)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight * .92 && r.bottom > 0) el.classList.add('in'); });
+setTimeout(sweep, 2500); addEventListener('scroll', sweep, {passive: true});
 
 // Photographs drift slowly against the scroll
 const drift = [...document.querySelectorAll('[data-drift]')];
