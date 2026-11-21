@@ -97,6 +97,7 @@ section{padding:110px 0}
 .cat.big .ico{border-color:rgba(255,255,255,.35)}
 .cat.big .ico svg{stroke:#fff}
 .cat.big .arrow{color:#fff}
+.cat.wide{grid-column:span 2}
 
 /* Про салон */
 .about{background:var(--black-2);border-block:1px solid var(--line)}
@@ -187,7 +188,7 @@ footer .container{display:flex;justify-content:space-between;gap:30px;flex-wrap:
   .hero-facts b{font-size:1.8rem}
   .hero-facts span{font-size:.75rem;display:block;line-height:1.3;margin-top:4px}
   .cats{grid-template-columns:1fr}
-  .cat.big{grid-column:auto}
+  .cat.big,.cat.wide{grid-column:auto}
   .perks{grid-template-columns:1fr}
   .offer{padding:32px}
   .offer .tag{left:32px}
