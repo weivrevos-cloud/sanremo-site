@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Сантехніка KOER — каталог | SanRemo, Одеса</title>
-<meta name="description" content="Каталог сантехніки KOER у салоні SanRemo (Одеса): змішувачі, душові кабіни, інсталяції, унітази, трапи, рушникосушарки. Наявність та консультація за телефоном.">
+<title>Каталог сантехніки KOER та Qtap | SanRemo, Одеса</title>
+<meta name="description" content="Каталог сантехніки KOER та Qtap у салоні SanRemo (Одеса): змішувачі, унітази, інсталяції, душові кабіни, трапи, дзеркала. Наявність і консультація за телефоном.">
 <meta name="theme-color" content="#0b1312">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,11 @@
 .crumbs{font-size:.85rem;color:var(--muted);margin-bottom:18px}
 .crumbs a{text-decoration:none}.crumbs a:hover{color:var(--teal-light)}
 
+.brand-tabs{display:flex;gap:8px;margin:0 0 22px;flex-wrap:wrap}
+.brand-tabs a{border:1px solid var(--line);border-radius:999px;padding:9px 20px;text-decoration:none;font-weight:600;font-size:.92rem;color:#cfd9d7;transition:all .2s}
+.brand-tabs a:hover{border-color:var(--teal);color:#fff}
+.brand-tabs a.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.pm .desc{font-size:.9rem;line-height:1.6;color:#cfd9d7;margin:0 0 22px}
 .toolbar{position:sticky;top:76px;z-index:30;background:rgba(11,19,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 0}
 .toolbar .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .search{flex:1 1 280px;position:relative}
@@ -120,7 +125,7 @@ dialog.product::backdrop{background:rgba(3,8,7,.75);backdrop-filter:blur(4px)}
     <nav class="main" id="nav">
       <ul>
         <li><a href="index.html#catalog">Каталог</a></li>
-        <li><a href="catalog.html" style="color:#fff">Товари KOER</a></li>
+        <li><a href="catalog.html" style="color:#fff">Каталог товарів</a></li>
         <li><a href="index.html#about">Про салон</a></li>
         <li><a href="index.html#brands">Бренди</a></li>
         <li><a href="index.html#contacts">Контакти</a></li>
@@ -137,10 +142,11 @@ dialog.product::backdrop{background:rgba(3,8,7,.75);backdrop-filter:blur(4px)}
 <main>
   <div class="page-head">
     <div class="container">
-      <div class="crumbs"><a href="index.html">Головна</a> / Каталог / KOER</div>
-      <p class="eyebrow">Чеська сантехніка</p>
-      <h1>Сантехніка KOER</h1>
-      <p>Змішувачі, душові кабіни, інсталяції, трапи та аксесуари. Оберіть товар — і ми підкажемо наявність, термін поставки та допоможемо з вибором у салоні.</p>
+      <div class="crumbs"><a href="index.html">Головна</a> / Каталог / <span id="crumbBrand">KOER</span></div>
+      <nav class="brand-tabs" id="brandTabs" aria-label="Бренди"><a href="catalog.html" data-b="koer">KOER</a><a href="catalog.html?b=qtap" data-b="qtap">Qtap</a></nav>
+      <p class="eyebrow" id="brandEyebrow">Чеська сантехніка</p>
+      <h1 id="brandH1">Сантехніка KOER</h1>
+      <p id="brandLead">Змішувачі, душові кабіни, інсталяції, трапи та аксесуари. Оберіть товар — і ми підкажемо наявність, термін поставки та допоможемо з вибором у салоні.</p>
     </div>
   </div>
 
@@ -149,7 +155,7 @@ dialog.product::backdrop{background:rgba(3,8,7,.75);backdrop-filter:blur(4px)}
       <div class="row">
         <label class="search">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-          <input id="q" type="search" placeholder="Пошук: назва або артикул (напр. KR5322)" autocomplete="off">
+          <input id="q" type="search" placeholder="Пошук: назва або артикул" autocomplete="off">
         </label>
         <label class="toggle"><input id="avail" type="checkbox" checked><span>Тільки в наявності</span></label>
         <select id="sort" class="sort" aria-label="Сортування">
@@ -201,6 +207,14 @@ const PRICE_MODE = 'hide';
 const MARKUP = 0;          // націнка у відсотках, напр. 30
 const PHONE = '+380638441794';
 const PAGE = 24;
+const BRANDS = {
+  koer: {name: 'KOER', file: 'data/koer.json', eyebrow: 'Чеська сантехніка', ex: 'KR5322',
+    lead: 'Змішувачі, душові кабіни, інсталяції, трапи та аксесуари. Оберіть товар — і ми підкажемо наявність, термін поставки та допоможемо з вибором.'},
+  qtap: {name: 'Qtap', file: 'data/qtap.json', eyebrow: 'Чеська сантехніка', ex: 'QT1001CRM',
+    lead: 'Унітази й умивальники, комплекти з інсталяцією, змішувачі, душові кабіни, трапи та дзеркала з підсвіткою. Оберіть товар — і ми підкажемо наявність, термін поставки та допоможемо з вибором.'}
+};
+const BKEY = BRANDS[new URLSearchParams(location.search).get('b')] ? new URLSearchParams(location.search).get('b') : 'koer';
+const BRAND = BRANDS[BKEY];
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -210,12 +224,17 @@ const priceHtml = (it, cls) => showPrice && it.p ? `<div class="${cls}">${fmt(it
 const shortCat = c => c.replace(' та комплектуючі', '').replace(' та зливна арматура', '').replace(' для ванної кімнати', '');
 
 let pushed = false;
+document.querySelectorAll('#brandTabs a').forEach(a => { if (a.dataset.b === BKEY) { a.classList.add('on'); a.setAttribute('aria-current', 'page'); } });
+$('#crumbBrand').textContent = BRAND.name; $('#brandEyebrow').textContent = BRAND.eyebrow;
+$('#brandH1').textContent = 'Сантехніка ' + BRAND.name; $('#brandLead').textContent = BRAND.lead;
+$('#q').placeholder = `Назва або артикул, напр. ${BRAND.ex}`;
+document.title = `Сантехніка ${BRAND.name} — каталог | SanRemo, Одеса`;
 let DATA = null, state = {cat: '', kind: '', q: '', avail: true, sort: '', shown: PAGE};
 
 if (!showPrice) document.querySelectorAll('#sort [data-price]').forEach(o => o.remove());
 $('#y').textContent = new Date().getFullYear();
 
-fetch('data/koer.json').then(r => r.json()).then(d => {
+fetch(BRAND.file).then(r => r.json()).then(d => {
   DATA = d;
   d.items.forEach(it => it._s = (it.n + ' ' + it.sku).toLowerCase());
   if (d.updated) $('#updated').textContent = 'Наявність оновлено: ' + d.updated.split(' ')[0].split('-').reverse().join('.');
@@ -289,7 +308,7 @@ function openProduct(id, fromHash) {
       ${it.img.length > 1 ? `<div class="thumbs">${it.img.map((u, i) => `<button class="${i ? '' : 'on'}" data-src="${esc(u)}"><img loading="lazy" src="${esc(u)}" alt=""></button>`).join('')}</div>` : ''}
     </div>
     <div class="info">
-      <p class="eyebrow">KOER · ${esc(shortCat(it.c))}</p>
+      <p class="eyebrow">${esc(BRAND.name)} · ${esc(shortCat(it.c))}</p>
       <h2>${esc(it.n)}</h2>
       <div class="meta"><span class="badge ${it.a ? '' : 'no'}">${it.a ? 'В наявності' : 'Під замовлення'}</span><span>Артикул: <b style="color:#fff">${esc(it.sku)}</b></span></div>
       ${priceHtml(it, 'pprice')}
@@ -298,6 +317,7 @@ function openProduct(id, fromHash) {
         <a class="btn btn-ghost" href="viber://chat?number=%2B${PHONE.slice(1)}">Viber</a>
         <a class="btn btn-ghost" href="https://t.me/SanRemoSalon" target="_blank" rel="noopener">Telegram</a>
       </div>
+      ${it.d ? `<p class="desc">${esc(it.d)}</p>` : ''}
       <p class="hint">Назвіть менеджеру артикул <b>${esc(it.sku)}</b> — підкажемо ціну, наявність і термін доставки. <a href="#" id="copyMsg">Скопіювати повідомлення</a></p>
       <table>${keys.map(k => `<tr><td>${esc(k)}</td><td>${esc(it.pr[k])}</td></tr>`).join('')}</table>
     </div>`;
